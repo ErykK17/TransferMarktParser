@@ -24,7 +24,7 @@ headers = {'User-Agent':
            'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36'}
 response = requests.get(base_url + search_url + phrase.replace(" ","+"), headers=headers)
 if response.status_code == 200:
-    soup = BeautifulSoup(response.content, 'html.parser')
+    soup = BeautifulSoup(response.content, 'parser.html')
     results = soup.find_all('a', string=phrase)
     if len(results) > 0:
         print(f"Search results for '{phrase}':")
@@ -34,3 +34,6 @@ if response.status_code == 200:
             print(f"{player_name}: {base_url}{player_link}")
     else:
         print(f"No results found for '{phrase}'.")
+        
+def test():
+    pass
